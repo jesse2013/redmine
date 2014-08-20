@@ -1,0 +1,11 @@
+<h2>create返回的页面</h2>
+
+<%= error_messages_for 'attachment' %>
+
+<%= form_tag( "/redmine/tasks/create", :method => "post", :multipart => true, :class => "tabular") do %>
+<div class="box">
+
+<p><label><%=l(:label_attachment_plural)%></label><%= render :partial => 'attachments/form' %></p>
+</div>
+<%= submit_tag l(:button_add) %>
+<% end %>

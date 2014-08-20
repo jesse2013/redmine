@@ -1,0 +1,121 @@
+have_func: checking for rb_thread_blocking_region()... -------------------- yes
+
+"gcc -o conftest -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LC:/bitnami/redmine-2.1.4-0/ruby/lib -L.      -lmsvcrt-ruby191  -lshell32 -lws2_32 -limagehlp  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main() {return 0;}
+/* end */
+
+"gcc -o conftest -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LC:/bitnami/redmine-2.1.4-0/ruby/lib -L.      -lmsvcrt-ruby191  -lshell32 -lws2_32 -limagehlp  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: 
+6: /*top*/
+7: int main() {return 0;}
+8: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_wait_for_single_fd()... -------------------- yes
+
+"gcc -o conftest -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LC:/bitnami/redmine-2.1.4-0/ruby/lib -L.      -lmsvcrt-ruby191  -lshell32 -lws2_32 -limagehlp  "
+conftest.c: In function 't':
+conftest.c:8:53: error: 'rb_wait_for_single_fd' undeclared (first use in this function)
+conftest.c:8:53: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: 
+6: /*top*/
+7: int main() {return 0;}
+8: int t() { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return 0; }
+/* end */
+
+"gcc -o conftest -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LC:/bitnami/redmine-2.1.4-0/ruby/lib -L.      -lmsvcrt-ruby191  -lshell32 -lws2_32 -limagehlp  "
+conftest.c: In function 't':
+conftest.c:8:1: warning: implicit declaration of function 'rb_wait_for_single_fd'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: 
+6: /*top*/
+7: int main() {return 0;}
+8: int t() { rb_wait_for_single_fd(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for main() in -llibmysql... -------------------- yes
+
+"gcc -o conftest -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -Ic:\bitnami\redmine-2.1.4-0\mysql\include -Ic:\bitnami\redmine-2.1.4-0\mysql/include -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LC:/bitnami/redmine-2.1.4-0/ruby/lib -Lc:\bitnami\redmine-2.1.4-0\mysql\lib -Lc:\bitnami\redmine-2.1.4-0\mysql/lib -L.      -lmsvcrt-ruby191 -llibmysql  -lshell32 -lws2_32 -limagehlp  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: 
+6: /*top*/
+7: int main() {return 0;}
+8: int t() { void ((*volatile p)()); p = (void ((*)()))main; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for mysql.h... -------------------- yes
+
+"gcc -E -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -Ic:\bitnami\redmine-2.1.4-0\mysql\include -Ic:\bitnami\redmine-2.1.4-0\mysql/include -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <mysql.h>
+/* end */
+
+--------------------
+
+have_header: checking for errmsg.h... -------------------- yes
+
+"gcc -E -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -Ic:\bitnami\redmine-2.1.4-0\mysql\include -Ic:\bitnami\redmine-2.1.4-0\mysql/include -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <errmsg.h>
+/* end */
+
+--------------------
+
+have_header: checking for mysqld_error.h... -------------------- yes
+
+"gcc -E -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/i386-mingw32 -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1/ruby/backward -IC:/bitnami/redmine-2.1.4-0/ruby/include/ruby-1.9.1 -I. -Ic:\bitnami\redmine-2.1.4-0\mysql\include -Ic:\bitnami\redmine-2.1.4-0\mysql/include -DFD_SETSIZE=32767  -DFD_SETSIZE=32767  -O3 -fno-omit-frame-pointer -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <mysqld_error.h>
+/* end */
+
+--------------------
+

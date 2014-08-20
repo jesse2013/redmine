@@ -1,0 +1,4 @@
+﻿id,project,principal,督办,tasker num,subject,负责人,application,平台分类,operating department,implement team,task difficulty,时间点,remarks
+1,新股发行体制改革应用软件就绪,cchen,Y,14DTP01,衍生品平台期权交易应用软件就绪（二期）,陈晨,DTP,核心,衍生品业务部,埃森哲、中软,已完成,4月	
+2,综合业务平台沪港通应用软件就绪,cchen,Y,14DTP02,期权交易平台结算价应用就绪,陈晨,DTP,核心,衍生品业务部,埃森哲、中软,编码实现,7月	
+3,综合业务平台沪港通应用软件就绪,cchen,Y,14DTP03,期权交易平台停牌收单应用就绪,陈晨,DTP,核心,衍生品业务部,埃森哲、中软,未启动,8月	
