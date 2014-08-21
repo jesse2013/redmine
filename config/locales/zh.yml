@@ -337,6 +337,7 @@ zh:
   field_destroy_project: 删除工程
   field_create_issue: 新增任务
   field_destroy_issue: 删除任务
+  notice_renwubianhao_notunique: 任务编号已经存在，请选择另外一个
 
   setting_app_title: 应用程序标题
   setting_app_subtitle: 应用程序子标题

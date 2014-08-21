@@ -289,7 +289,7 @@ class ProjectsController < ApplicationController
 
       new_journal = Journal.new(              
                     :journalized_type => "Project" ,
-                    :journalized => nil,
+                    :journalized => @project_to_destroy,
                     :user => User.current,
                     :notes => nil, 
                     :private_notes => false

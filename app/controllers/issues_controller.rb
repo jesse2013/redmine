@@ -282,46 +282,64 @@ class IssuesController < ApplicationController
   end
 
   def create
+    custom_field = CustomField.find_by_type_and_name("IssueCustomField",l(:duban))
+    
+
     call_hook(:controller_issues_new_before_save, { :params => params, :issue => @issue })
-    @issue.save_attachments(params[:attachments] || (params[:issue] && params[:issue][:uploads]))
-    if @issue.save
-      call_hook(:controller_issues_new_after_save, { :params => params, :issue => @issue})
-      
 
-      new_journal = Journal.new(              
-                    :journalized_type => "Issue" ,
-                    :journalized => @issue,
-                    :user => User.current,
-                    :notes => nil, 
-                    :private_notes => false
-      )
-      new_journal.details = []
-      new_journal.details << JournalDetail.new(:property=>'attr',
-                              :prop_key=> 'create_issue',:old_value=>"",:value=>"")
-      new_journal.notify = false
-      new_journal.save
-
-
-      respond_to do |format|
-        format.html {
-          render_attachment_warning_if_needed(@issue)
-          flash[:notice] = l(:notice_issue_successful_create, :id => view_context.link_to("##{@issue.id}", issue_path(@issue), :title => @issue.subject))
-          if params[:continue]
-            attrs = {:tracker_id => @issue.tracker, :parent_issue_id => @issue.parent_issue_id}.reject {|k,v| v.nil?}
-            redirect_to new_project_issue_path(@issue.project, :issue => attrs)
-          else
-            redirect_to issue_path(@issue)
-          end
-        }
-        format.api  { render :action => 'show', :status => :created, :location => issue_url(@issue) }
-      end
-      return
-    else
+   
+    renwubianhao  = params[:issue]["custom_field_values"][custom_field.id.to_s]
+    custom_value = CustomValue.find_by_customized_type_and_custom_field_id_and_value("Issue",custom_field.id,renwubianhao)
+    if !custom_value.nil? && !custom_value.blank?
+      flash[:notice] = l(:notice_renwubianhao_notunique)
       respond_to do |format|
         format.html { render :action => 'new' }
         format.api  { render_validation_errors(@issue) }
       end
+    else
+      @issue.save_attachments(params[:attachments] || (params[:issue] && params[:issue][:uploads]))  
+
+      if @issue.save
+        call_hook(:controller_issues_new_after_save, { :params => params, :issue => @issue})
+        
+
+        new_journal = Journal.new(              
+                      :journalized_type => "Issue" ,
+                      :journalized => @issue,
+                      :user => User.current,
+                      :notes => nil, 
+                      :private_notes => false
+        )
+        new_journal.details = []
+        new_journal.details << JournalDetail.new(:property=>'attr',
+                                :prop_key=> 'create_issue',:old_value=>"",:value=>"")
+        new_journal.notify = false
+        new_journal.save
+
+
+        respond_to do |format|
+          format.html {
+            render_attachment_warning_if_needed(@issue)
+            flash[:notice] = l(:notice_issue_successful_create, :id => view_context.link_to("##{@issue.id}", issue_path(@issue), :title => @issue.subject))
+            if params[:continue]
+              attrs = {:tracker_id => @issue.tracker, :parent_issue_id => @issue.parent_issue_id}.reject {|k,v| v.nil?}
+              redirect_to new_project_issue_path(@issue.project, :issue => attrs)
+            else
+              redirect_to issue_path(@issue)
+            end
+          }
+          format.api  { render :action => 'show', :status => :created, :location => issue_url(@issue) }
+        end
+        return
+      else
+        respond_to do |format|
+          format.html { render :action => 'new' }
+          format.api  { render_validation_errors(@issue) }
+        end
+      end
+
     end
+
   end
 
   def edit
